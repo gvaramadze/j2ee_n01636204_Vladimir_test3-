@@ -13,20 +13,21 @@
         <th>Name</th>
         <th>Price</th>
         <th>Description</th>
+        <th>Quantity</th>
         <th>Actions</th>
     </tr>
     </thead>
     <tbody>
-    <tr th:each="product : ${products}">
+    <tr th:each="product : ${product}">
         <td th:text="${product.id}"></td>
         <td th:text="${product.name}"></td>
         <td th:text="${product.description}"></td>
         <td th:text="${product.price}"></td>
         <td th:text="${product.stock}"></td>
         <td>
-            <a th:href="@{/products/{id}(id=${product.id})}">View</a>
-            <a th:href="@{/products/edit/{id}(id=${product.id})}">Edit</a>
-            <a th:href="@{/products/delete/{id}(id=${product.id})}">Delete</a>
+            <a th:href="@{/product/{id}(id=${product.id})}">View</a>
+            <a th:href="@{/product/edit/{id}(id=${product.id})}">Edit</a>
+            <a th:href="@{/product/delete/{id}(id=${product.id})}">Delete</a>
         </td>
     </tr>
     </tbody>

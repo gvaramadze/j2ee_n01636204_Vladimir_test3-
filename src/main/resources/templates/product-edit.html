@@ -20,7 +20,7 @@
       <input type="number" id="price" name="price" th:value="${product.price}" required><br>
 
       <label for="stock">Quantity:</label>
-      <textarea id="stock" name="stock" th:text="${product.stock}"></textarea><br>
+      <input type="number" id="stock" name="stock" th:value="${product.stock}" required><br>
 
       <input type="submit" value="Update Product">
     </form>

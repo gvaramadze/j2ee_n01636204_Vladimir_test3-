@@ -18,7 +18,6 @@ public class ProductController {
     @GetMapping("/")
     public String getHome(Model model)
     {
-        model.addAttribute("message", "This is HomePage!");
         return "index";
     }
 
@@ -50,7 +49,7 @@ public class ProductController {
     public String showUpdateForm(@PathVariable Long id, Model model) {
         Optional<Product> product = productService.getProductById(id);
         Optional<Object> productOptional = Optional.empty();
-        if (productOptional.isPresent()) {
+        if (product.isPresent()) {
             model.addAttribute("product", product.get());
             return "product-edit";
         } else {
@@ -58,7 +57,7 @@ public class ProductController {
         }
     }
 
-    @PutMapping("/update/{id}")
+    @PostMapping("/update/{id}")
     public String updateProduct(@PathVariable Long id, @ModelAttribute Product product) {
         productService.updateProduct(id, product);
         return "redirect:/product";
